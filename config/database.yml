@@ -11,7 +11,8 @@
 #
 default: &default
   adapter: mysql2
-  encoding: utf8
+  encoding: utf8mb4
+  collation: utf8mb4_bin
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
@@ -20,6 +21,8 @@ default: &default
 development:
   <<: *default
   database: game_manager_development
+  encoding: utf8mb4
+  collation: utf8mb4_bin
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,6 +30,8 @@ development:
 test:
   <<: *default
   database: game_manager_test
+  encoding: utf8mb4
+  collation: utf8mb4_bin
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -52,3 +57,5 @@ production:
   database: game_manager_production
   username: game_manager
   password: <%= ENV['GAME_MANAGER_DATABASE_PASSWORD'] %>
+  encoding: utf8mb4
+  collation: utf8mb4_bin

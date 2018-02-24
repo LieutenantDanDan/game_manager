@@ -40,6 +40,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    annotate (2.7.2)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
     arel (8.0.0)
     bindex (0.5.0)
     builder (3.2.3)
@@ -67,6 +70,8 @@ GEM
     ffi (1.9.22)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    httparty (0.16.0)
+      multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -86,6 +91,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
     mysql2 (0.4.10)
     nio4r (2.2.0)
     nokogiri (1.8.2)
@@ -175,9 +181,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  httparty
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.3.18, < 0.5)
