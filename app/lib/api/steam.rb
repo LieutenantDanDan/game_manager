@@ -29,14 +29,12 @@ module Api
 
       def fetch_user_apps(steam_id)
         request = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/"
-        request << "?#{ACCESS_KEY}&format=json"
+        request << "?key=#{ACCESS_KEY}&format=json"
         request << "&steamid=#{steam_id}"
         response = HTTParty.get(request).parsed_response.with_indifferent_access
 
 
         return response[:response][:games]
-
-
       end
 
 
