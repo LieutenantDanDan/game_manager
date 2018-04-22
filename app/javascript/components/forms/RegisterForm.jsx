@@ -1,4 +1,5 @@
 import React from 'react'
+import $ from 'jquery'
 
 class RegisterForm extends React.Component {
     constructor(props) {
@@ -23,8 +24,29 @@ class RegisterForm extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('A name and password was submitted: ' + this.state.name + ' ' + this.state.password);
         event.preventDefault();
+
+        const name = this.state.name;
+        const steamid = this.state.steamid;
+        const password = this.state.password;
+
+        this.setState({ name: '', steamid: '', password: '' });
+
+        const user = {user: {name: name, steamid: steamid, password: password}};
+
+        $.ajax({
+            url: '/users/create',
+            dataType: 'json',
+            type: 'POST',
+            data: user,
+            success: function() {
+                console.log("success!");
+            },
+            error: function() {
+                console.error("error");
+            }
+        });
+
     }
 
     render() {

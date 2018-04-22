@@ -1,0 +1,15 @@
+<%= "REACT COMPONENT" %>
+<% games = @games.to_a.map { |game|
+  {name: game.steam_app.name,
+  playtime: game.total_playtime,
+  id: game.id}
+} %>
+<%= react_component 'game_list/GameList', games: games %>
+
+<%= "ERB METHOD" %>
+
+<% @games.each do |game| %>
+  <% steam_app = game.steam_app %>
+  <p>Name: <%= steam_app.name%> </p>
+  <p>Play Time: <%= game.total_playtime %></p>
+<% end %>

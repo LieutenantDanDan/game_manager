@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   get 'steam_apps/show'
   get 'steam_apps/edit'
 
-  get 'games/index'
-  get 'games/show'
-  get 'games/edit'
+  resources :games
+  resources :users
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
